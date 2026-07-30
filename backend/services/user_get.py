@@ -5,6 +5,8 @@ from models.story import Story
 from models.node import Node
 from models.option import Option
 
+from fastapi import HTTPException, status
+
 async def get_story(db: AsyncSession, id: str):
     result = await db.execute(
         select(Story).where(Story.id == id)
@@ -34,6 +36,7 @@ def build(node_id: str | None, node_map, options_map):
     options = options_map.get(node_id, [])
 
     return {
+        "id":node.id,
         "view": node.view,
         "is_end_node": node.is_end_node,
         "is_winning_node": node.is_winning_node,
@@ -49,6 +52,10 @@ def build(node_id: str | None, node_map, options_map):
 
 async def get_a_story(db: AsyncSession, id: str):
     story = await get_story(db, id)
+
+    if story is None:
+        raise HTTPException(status_code=404, detail="story can't found")
+    
     nodes = await get_nodes(db, id)
     options = await get_options(db, id)
 

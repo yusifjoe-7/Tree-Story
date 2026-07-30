@@ -1,0 +1,158 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #030304;
+    color: #ddd;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 50% 90%, rgba(60,3,6,0.14) 0%, transparent 55%),
+      linear-gradient(180deg, #01010a 0%, #060309 45%, #0a0405 100%);
+    background-attachment: fixed;
+  }
+
+  /* stars */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, #fff, transparent),
+      radial-gradient(1px 1px at 25% 8%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 40% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 60% 5%, #fff, transparent),
+      radial-gradient(1px 1px at 75% 12%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 90% 18%, #fff, transparent),
+      radial-gradient(1px 1px at 15% 30%, #fff, transparent),
+      radial-gradient(1px 1px at 55% 25%, #fff, transparent),
+      radial-gradient(1px 1px at 85% 30%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 30% 40%, #fff, transparent),
+      radial-gradient(1px 1px at 70% 38%, #fff, transparent);
+    background-repeat: no-repeat;
+    opacity: 0.6;
+  }
+
+  /* grain */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-repeat: repeat;
+  }
+
+  /* moon */
+  .moon {
+    position: fixed;
+    top: 8%;
+    left: 12%;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ff5b52 0%, #b31d1a 45%, #4a0808 100%);
+    box-shadow: 0 0 60px 20px rgba(180,20,15,0.35), 0 0 140px 60px rgba(120,10,10,0.15);
+    z-index: 0;
+  }
+  .moon::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 55%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.15);
+  }
+  .moon::after {
+    content: "";
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.12);
+  }
+
+  /* crows, simple css shapes, distant/small */
+  .crow {
+    position: fixed;
+    width: 26px;
+    height: 10px;
+    z-index: 0;
+    opacity: 0.55;
+  }
+  .crow::before, .crow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 14px;
+    height: 3px;
+    background: #0d0d0d;
+    border-radius: 50%;
+  }
+  .crow::before {
+    left: 0;
+    transform: rotate(25deg);
+    transform-origin: right center;
+  }
+  .crow::after {
+    right: 0;
+    transform: rotate(-25deg);
+    transform-origin: left center;
+  }
+
+  .crow1 { top: 18%; left: 30%; transform: scale(0.8); }
+  .crow2 { top: 22%; left: 36%; transform: scale(0.6); }
+  .crow3 { top: 15%; left: 45%; transform: scale(0.5); }
+  .crow4 { top: 25%; left: 55%; transform: scale(0.9); }
+  .crow5 { top: 20%; left: 65%; transform: scale(0.65); }
+
+  /* distant tree silhouettes at bottom */
+  .horizon {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+    z-index: 0;
+    background: linear-gradient(to top, #000000 0%, transparent 100%);
+  }
+  .tree {
+    position: fixed;
+    bottom: 0;
+    width: 3px;
+    background: #050505;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 60px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h1 {
+    color: #b4111a;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(150,10,15,0.4);
+  }
+
+  p {
+    color: #999;
+    line-height: 1.7;
+  }

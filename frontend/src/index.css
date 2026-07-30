@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+
+.mainfont{
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+.font{
+    font-family: "UnifrakturCook", cursive;
+}

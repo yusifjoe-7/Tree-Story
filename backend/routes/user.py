@@ -20,10 +20,10 @@ async def main(
 
 
 
-@router.get("/story")
+@router.get("/story/{id}")
 async def story_rout(
-    data : Story_request,
+    id:str,
     db:AsyncSession = Depends(get_db)
 ):
-    return await get_a_story(db, data.id)
+    return await get_a_story(db, id)
 
