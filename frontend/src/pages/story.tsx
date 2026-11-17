@@ -1,4 +1,4 @@
-import { Route, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import type { story, StoryNode, StoryOption } from "../types";
 import { Link } from "react-router-dom"
